@@ -103,4 +103,6 @@ python -m http.server 8000
 
 ## License
 
-未声明许可证。如需开源分发，建议补充 MIT 或 CC BY 4.0。
+[MIT](LICENSE) © 2026 BugDesigner-Hy
+
+可以自由使用、修改、分发，包括商业用途，保留版权与许可声明即可。生成的作品（截图、导出的 PNG）属于你的创作，本许可不主张任何权利。

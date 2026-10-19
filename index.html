@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NN · 神经网络</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <main class="stage" id="stage">
+        <canvas id="view" aria-label="神经生长画布"></canvas>
+        <canvas id="view3d" aria-label="三维神经生长" hidden></canvas>
+        <div class="empty" id="empty">
+          <strong id="emptyTitle">点击任意位置</strong>
+          <span id="emptyText">神经从落点向随机方向长出，并一直向外生长</span>
+        </div>
+        <p class="hint" id="hint">按住空格拖动画布，松开后点击新建神经。滚轮缩放</p>
+      </main>
+      <aside class="panel">
+        <header class="panel-head">
+          <div class="logo">NN</div>
+          <p class="subtitle">神经网络</p>
+          <p class="stat" id="stat">0 株 · 0 条生长中</p>
+          <div class="modes" role="group" aria-label="视图模式">
+            <button type="button" id="mode2d" class="is-active">平面</button>
+            <button type="button" id="mode3d">3D</button>
+          </div>
+        </header>
+
+        <div class="fields">
+          <label class="field">
+            <span class="field-label"><span>初始神经</span><span class="val" data-for="sprouts"></span></span>
+            <input id="sprouts" type="range" min="1" max="16" step="1" value="6" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>生长速度</span><span class="val" data-for="speed"></span></span>
+            <input id="speed" type="range" min="0.2" max="3" step="0.1" value="1" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>分叉概率</span><span class="val" data-for="branchProb"></span></span>
+            <input id="branchProb" type="range" min="0" max="100" step="1" value="72" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>分叉张角</span><span class="val" data-for="branchAngle"></span></span>
+            <input id="branchAngle" type="range" min="12" max="110" step="1" value="46" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>最大层级</span><span class="val" data-for="maxDepth"></span></span>
+            <input id="maxDepth" type="range" min="1" max="14" step="1" value="8" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>分叉间距</span><span class="val" data-for="gap"></span></span>
+            <input id="gap" type="range" min="24" max="140" step="1" value="52" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>弯曲程度</span><span class="val" data-for="wander"></span></span>
+            <input id="wander" type="range" min="0" max="100" step="1" value="42" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>线条粗细</span><span class="val" data-for="thickness"></span></span>
+            <input id="thickness" type="range" min="0.6" max="5" step="0.1" value="2" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>色相</span><span class="val" data-for="hue"></span></span>
+            <input id="hue" type="range" min="0" max="360" step="1" value="188" />
+          </label>
+          <label class="field">
+            <span class="field-label"><span>发光</span><span class="val" data-for="glow"></span></span>
+            <input id="glow" type="range" min="0" max="100" step="1" value="68" />
+          </label>
+        </div>
+
+        <p class="note">每次点击生成一株独立网络，并记住当前参数。最大层级只限制分叉，神经会一直往前长。</p>
+
+        <div class="actions">
+          <button type="button" id="pause">暂停</button>
+          <button type="button" id="clear">清空</button>
+        </div>
+        <button type="button" id="export" hidden>下载图片</button>
+      </aside>
+    </div>
+    <script src="js/view3d.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

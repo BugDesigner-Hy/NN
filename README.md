@@ -99,7 +99,7 @@ python -m http.server 8000
 
 ## 浏览器支持
 
-Chrome / Edge / Firefox / Safari 的近期版本均已测试可用。三维模式依赖 WebGL2 与浮点纹理能力，较老的设备会自动退回平面模式。
+建议使用 Chrome / Edge / Firefox / Safari 的近期版本。平面视图只依赖 Canvas 2D，兼容范围很广；三维视图需要 WebGL2，不支持时「3D」按钮会自动禁用，平面模式不受影响。
 
 ## License
 
